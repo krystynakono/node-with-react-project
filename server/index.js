@@ -11,8 +11,11 @@ mongoose.connect(keys.mongoURI);
 
 const app = express();
 
-// maxAge is how long a cookie can exist in the browser before it is automatically expired (millisecond)
-// keys is used to encrypt our cookie (array allows multiple keys that is will picked randomly for an added level of security)
+/* app.use functions wire up middleware that modify incoming requests to our app before they are sent off to route handlers */
+
+
+/* maxAge is how long a cookie can exist in the browser before it is automatically expired (millisecond)
+keys is used to encrypt our cookie (array allows multiple keys that is will picked randomly for an added level of security) */
 app.use(
   cookieSession({
     maxAge: 30 * 24 * 60 * 1000,
