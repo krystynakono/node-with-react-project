@@ -16,7 +16,7 @@ const app = express();
 
 // Middlewares make use of app.use call
 
-/* This middleware will parse the body of any incoming request and assign it to the req.body of any incoming object */
+/* This middleware will parse the body of any incoming request and assign it to the req.body of any incoming request object */
 app.use(bodyParser.json());
 
 /* maxAge is how long a cookie can exist in the browser before it is automatically expired (millisecond)
