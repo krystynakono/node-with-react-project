@@ -6,9 +6,10 @@ const bodyParser = require('body-parser');
 const keys = require('./config/keys');
 // Model will need to be defined before we try to make use of it in the passport file
 require('./models/User');
+require('./models/Survey');
 require('./services/passport');
 
-mongoose.connect(keys.mongoURI);
+mongoose.connect(keys.mongoURI, { useNewUrlParser: true });
 
 const app = express();
 
@@ -34,6 +35,7 @@ app.use(passport.session());
 // immediately invoke the function that is returned from authRoutes
 require('./routes/authRoutes')(app);
 require('./routes/billingRoutes')(app);
+require('./routes/surveyRoutes')(app);
 
 /* NODE_ENV is environmental variable set my heroku */
 if (process.env.NODE_ENV === 'production') {
